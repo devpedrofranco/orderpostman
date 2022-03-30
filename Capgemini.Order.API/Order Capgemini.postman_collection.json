@@ -1,0 +1,154 @@
+{
+	"info": {
+		"_postman_id": "2d7256f0-2b48-4171-a84e-d26e6ad4c599",
+		"name": "Order Capgemini",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "https://localhost:44302/Order",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"    const responseJson = pm.response.json();\r",
+							"    postman.setEnvironmentVariable(\"orderId\", responseJson.id);\r",
+							"    console.log(\"Setado Varialvel de Ambiente Order Id=\"+responseJson.id);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"id\": \"3fa85f64-5717-4562-b3fc-2c963f66afa8\",\r\n  \"number\": \"1\",\r\n  \"client\": \"Jose\",\r\n  \"adrees\": \"Rua tal\",\r\n  \"product\": \"Camisa\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/Order",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"Order"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://localhost:44302/Order",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/Order",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"Order"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://localhost:44302/Order/3fa85f64-5717-4562-b3fc-2c963f66afa6",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/Order/{{orderId}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"Order",
+						"{{orderId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://localhost:44302/Order",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"id\": \"{{orderId}}\",\r\n  \"number\": \"1\",\r\n  \"client\": \"Jose\",\r\n  \"adrees\": \"Rua tal\",\r\n  \"product\": \"Calça\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/Order",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"Order"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://localhost:44302/Order/3fa85f64-5717-4562-b3fc-2c963f66afa6",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/Order/{{orderId}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"Order",
+						"{{orderId}}"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "https://localhost:44304",
+			"type": "string"
+		}
+	]
+}
